@@ -55,11 +55,13 @@ Docker is perhaps the most popular container technology at this time, and is wid
 - Follow the appropriate `Getting Started` guide to make sure that Docker is working as expected.
 	- Macs: https://docs.docker.com/docker-for-mac/
 	- Windows: https://docs.docker.com/docker-for-windows/
-- We will use the `Jupyter Notebook Data Science Stack` for now. You can start it using the following command in the commandline -- replace PWD with the path to the git directory. More detailed description of the image (thanks, José Calderón, for updating this in Summer 2021!) is available at: https://hub.docker.com/r/jmct/cmsc320
-	- docker run -it -v PWD/project0:/home/jovyan/notebooks  --rm -p 8888:8888 jmct/cmsc320
+- We will use the `Jupyter Notebook Data Science Stack` for now. You can start it using the following command in the commandline -- make sure you're in the git directory. More detailed description of the image (thanks, José Calderón, for updating this in Summer 2021!) is available at: https://hub.docker.com/r/jmct/cmsc320
+	- docker run -it -v $(pwd)/project0:/home/jovyan/notebooks  --rm -p 8888:8888 jmct/cmsc320
+
+	Note: If this command doesn't work, please replace `$(pwd)` with the current git directory.
 - Quick explanation of the above command (don't worry if you don't follow this right now):
 	- `-p 8888:8888` maps the 8888 port on the host OS to the 8888 port on the guest container. So if you were to go to http://localhost:8888, it will redirect to the 8888 port on the container - Jupyter Notebook starts a web server on that port on the guest.
-	- `-v PWD/project0:/home/jovyan/notebooks` mounts the current project0 directory on the guest, so that everything in project0 directry will be available in `notebooks` directory on the guest.
+	- `-v $(pwd)/project0:/home/jovyan/notebooks` mounts the current project0 directory on the guest, so that everything in project0 directry will be available in `notebooks` directory on the guest. $(pwd) automatically runs the `pwd` unix command and places the result directly, so that you don't have to type the location of the git directry manually.
 	- `jupyter/datascience-notebook` tells docker which image to pull from the Docker Hub. The first time you do this, it will take a few minutes to download everything it needs.
 - Once everything is initialized and the notebook starts, you can connect it to by opening your web browser and going to: http://localhost:8888/tree?token=279fb5e0fc0f240a90f913e7b9c9c068f36543a7d9544663  --- the `token` will be different for you. Look for it in the output of the command above.
 
