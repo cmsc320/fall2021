@@ -2,7 +2,7 @@
 
 Posted: October 26, 2021
 
-Due: November 23, 2021
+Due: November 22, 2021
 
 ## Part 1: Regression analysis of Gapminder data
 
