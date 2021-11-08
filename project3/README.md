@@ -2,6 +2,8 @@
 
 Posted: October 26, 2021
 
+Updated: November 8, 2021
+
 Due: November 22, 2021
 
 ## Part 1: Regression analysis of Gapminder data
@@ -95,19 +97,24 @@ Based on the Violin plot you made, consider the following questions.
 
 
 <ol style="list-style-type: lower-alpha">
-<li><p>Find a dataset on which to try out different classification (or regression) algorithms. You can use a dataset provided by SKLearn but you may not use the Iris dataset we used in the lectures.</p></li>
-<li><p>Choose <strong>two</strong> of the following algorithms:</p></li>
+<li><p>Find a dataset on which to try out different classification (or regression) algorithms.  If you'd like, you can use a dataset provided by SKLearn; more info <a href="https://scikit-learn.org/stable/datasets/toy_dataset.html">here</a>.</p></li>
+<li><p>Choose <strong>two</strong> of the following algorithms, or feel free to use other ``standard'' classifiers or regressors from SKLearn:</p></li>
 </ol>
 <ol style="list-style-type: decimal">
 <li>Linear Discriminant Analysis (LDA) (only classification)</li>
 <li>decision trees,</li>
-<li>random forests<br />
-</li>
+<li>random forests,</li>
 <li>linear SVM,</li>
 <li>non-linear SVM</li>
 <li>k-NN classification (or regression)</li>
 </ol>
-<p>compare the two chosen algorithms on their prediction performance, using your chosen dataset. Use 10-fold cross-validation and a paired t-test. Note: for those algorithms that have hyper-parameters, i.e., all of the above except for LDA, you need to specify in your writeup which model selection procedure you used.</p>
+<p>(It will likely make sense to choose two classifiers or two regressors, not one of each, for most datasets and tasks.)</p>
+
+<p>Compare the two chosen algorithms on their prediction performance, using your chosen dataset.  Let us know what your performance metric is (e.g., accuracy, false negative rate (FNR), false positive rate (FPR), precision, recall, etc), and feel free to use more than one.  Use either (i) holdout cross-validation, like we discussed in class (11/9), or (ii) 10-fold cross-validation.  SKLearn offers some one-liners to help with cross-validation; more info can be found <a href="https://scikit-learn.org/stable/modules/cross_validation.html">here</a>.  </p>
+
+<p>Note: for those algorithms that have hyper-parameters, i.e., all of the above except for LDA, you need to specify in your writeup which model selection procedure you used.</p>
+
+<p>As a bonus (+2 points), if you ran 10-fold cross-validation, feel free to run a statistical test such as a paired t-test to further support your performance comparison above.</p>
 </div>
 
 
@@ -121,5 +128,5 @@ Based on the Violin plot you made, consider the following questions.
     - Describe the dataset you are using, including: what is the outcome you are predicting (remember this should be a classification task) and what are the predictors you will be using.</p></li>
     - Include code to obtain and prepare your data as a dataframe to use with your two classification algorithms. In case your dataset includes non-numeric predictors, include the code you are using to transform these predictors into numeric predictors you can use with your logistic regression implementation.</p></li>
     - Specify the two additional algorithms you have chosen in part (b), and for algorithms that have hyper-parameters specify the method you are using for model selection.</p></li>
-    - Include all code required to perform the 10-fold cross-validation procedure on your two algorithms.</p></li>
-    - Write up the result of your 10-fold cross-validation procedure. Make sure to report the 10-fold CV error estimate (with standard error) of each of the two algorithms. Also report on the result of the t-test comparing your chosen two algorithms.</p></li>
+    - Include all code required to perform the holdout or 10-fold cross-validation procedure on your two algorithms.</p></li>
+    - Write up the result of your holdout or 10-fold cross-validation procedure. If the latter, make sure to report the 10-fold CV error estimate (with standard error) of each of the two algorithms.</p></li>
